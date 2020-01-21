@@ -148,6 +148,7 @@ class LyricsSearchResp:
         self.lyrics = kwargs.get("lyrics")
         self.search_str = kwargs.get("search_str")
         self.id = kwargs.get("id")
+        self.url = kwargs.get("url")
         self.search_score = kwargs.get("search_score")
 
 class LyricsSearch:
@@ -172,6 +173,7 @@ class Track:
         self.artist = Artist(**kwargs.get("artist")) if kwargs.get("artist") else None
         self.albums = [Album(**a) for a in kwargs.get("albums")] if kwargs.get("albums") else None
         self.lyrics = kwargs.get("lyrics")
+        self.url = kwargs.get("url") or ""
 
 class Artist:
     def __init__(self, **kwargs):
