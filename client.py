@@ -45,7 +45,7 @@ class Client:
         self.api_key = api_key
         self._loop = loop
         self.http = krequest(global_headers=[
-            ("Authorization", f"NANI {self.api_key}")
+            ("Authorization", f"Bearer {self.api_key}")
         ], loop=self._loop, lowmem=kwargs.get("lowmem_mode"))
         self.bot = bot
 
@@ -60,12 +60,12 @@ class Client:
 
     def register_ban_hook(self, func):
         if func not in self._ban_hook:
-            logger.info("Registered event hook", func.__name__)
+            logger.info(f"Registered event hook {func.__name__}")
             self._ban_hook.append(func)
 
     def unregister_ban_hook(self, func):
         if func in self._ban_hook:
-            logger.info("Unregistered event hook", func.__name__)
+            logger.info(f"Unregistered event hook {func.__name__}")
             self._ban_hook.remove(func)
 
     async def _dispatch_ban_event(self, event):
