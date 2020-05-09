@@ -142,6 +142,7 @@ class LyricsSearchResp:
         self.artist = kwargs.get("artist")
         self.artist_id = kwargs.get("artist_id")
         self.album = kwargs.get("album")
+        self.album_art = kwargs.get("album_art")
         self.album_ids = kwargs.get("album_ids")
         self.album_year = kwargs.get("album_year")
         self.name = kwargs.get("name")
